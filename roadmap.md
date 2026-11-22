@@ -1,1 +1,3 @@
 - [x] Rebuild portfolio: home, blog (empty), resume (bold), contact
+- [x] Fonts, load animation, project links, footer icons, resume layout
+- [ ] Resume PDF + real dates (waiting on file from Michaela)

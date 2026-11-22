@@ -14,12 +14,13 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   return (
-    <main className="space-y-5">
-      <h1 className="text-sm uppercase tracking-[0.2em] text-sage">Contact</h1>
+    <main className="reveal space-y-4">
+      <h1 className="text-sm text-sage">Contact</h1>
       <p>I'd love to hear from you — about a project, a book, or anything at all.</p>
       <p>
-        <a href="mailto:hello@michaelanunn.com" className="link-soft">hello@michaelanunn.com</a>
+        <a href="mailto:michaelalouisenunn@gmail.com" className="link-soft">michaelalouisenunn@gmail.com</a>
       </p>
+      <p><a href="https://calendly.com/michaelalouisenunn" target="_blank" rel="noreferrer" className="link-soft">book a call</a></p>
       <p className="text-muted-foreground">Washington, DC</p>
     </main>
   );

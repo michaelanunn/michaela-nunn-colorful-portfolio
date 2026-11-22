@@ -14,9 +14,9 @@ export const Route = createFileRoute("/blog")({
 
 function Blog() {
   return (
-    <main>
-      <h1 className="mb-6 text-sm uppercase tracking-[0.2em] text-sage">Blog</h1>
-      <p className="italic text-muted-foreground">No posts yet. Check back soon ✿</p>
+    <main className="reveal">
+      <h1 className="mb-3 text-sm text-sage">Blog</h1>
+      <p className="font-mono text-sm text-muted-foreground">No posts yet. Check back soon ✿</p>
     </main>
   );
 }

@@ -67,8 +67,8 @@
   --color-sage: var(--sage);
   --color-butter: var(--butter);
   --color-cherry: var(--cherry);
-  --font-serif: "Crimson Pro", Georgia, serif;
-  --font-script: "Mrs Saint Delafield", cursive;
+  --font-sans: "Segoe UI", system-ui, -apple-system, Helvetica, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -154,7 +154,7 @@
 }
 
 @layer base {
-  body { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.65; }
+  body { font-family: var(--font-sans); font-size: 0.975rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
   ::selection { background: var(--rose); }
 }
 @utility link-soft {
@@ -166,3 +166,6 @@
     linear-gradient(color-mix(in oklab, var(--rose) 45%, transparent) 50%, transparent 50%);
   background-size: 28px 28px;
 }
+
+@keyframes reveal { from { opacity: 0; transform: translateY(6px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+@utility reveal { opacity: 0; animation: reveal 0.7s cubic-bezier(.2,.7,.2,1) forwards; }

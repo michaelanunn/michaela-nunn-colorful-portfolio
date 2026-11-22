@@ -1,79 +1,124 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Linkedin } from "lucide-react";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { LINKEDIN } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
       { title: "Resume — Michaela Nunn" },
-      { name: "description", content: "Experience, projects and story of Michaela Nunn." },
+      { name: "description", content: "Experience, education and skills of Michaela Nunn." },
       { property: "og:title", content: "Resume — Michaela Nunn" },
-      { property: "og:description", content: "Experience, projects and story of Michaela Nunn." },
+      { property: "og:description", content: "Experience, education and skills of Michaela Nunn." },
     ],
   }),
   component: Resume,
 });
 
-const roles = [
-  { n: "01", co: "ScaleHouse Systems", role: "Full-stack programmer", body: "Built a platform that helps dental teams create and maintain OSHA- and HIPAA-compliant documentation.", tone: "bg-rose" },
-  { n: "02", co: "Stantec", role: "Electrical design", body: "Designed electrical systems for real buildings — precision, codes and drawings that have to work.", tone: "bg-sage" },
+const RESUME_PDF = "/michaela-nunn-resume.pdf";
+
+const experience = [
+  {
+    org: "ScaleHouse Systems",
+    url: "https://scalehousesystems.com",
+    blurb: "Compliance software for dental practices.",
+    role: "Full-Stack Programmer · Washington, DC",
+    dates: "2025—present",
+    points: [
+      "Built a platform that helps dental teams create and maintain OSHA- and HIPAA-compliant documentation.",
+      "Owned features end to end, from data model to interface.",
+    ],
+  },
+  {
+    org: "Stantec",
+    url: "https://www.linkedin.com/company/stantec",
+    blurb: "Global engineering & design firm.",
+    role: "Electrical Designer",
+    dates: "Previously",
+    points: [
+      "Produced electrical design drawings and calculations for building projects.",
+      "Coordinated with engineers across disciplines to meet code and client requirements.",
+    ],
+  },
 ];
 
-const stats = [
-  { v: "8", l: "products built" },
-  { v: "2", l: "engineering disciplines" },
-  { v: "DC", l: "home base" },
-];
+const d = (ms: number) => ({ animationDelay: `${ms}ms` });
+
+function LinkedInCard({ children, title, sub, href }: { children: React.ReactNode; title: string; sub: string; href: string }) {
+  return (
+    <HoverCard openDelay={150}>
+      <HoverCardTrigger asChild>
+        <a href={href} target="_blank" rel="noreferrer" className="link-soft">{children}</a>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-64 border-border bg-card text-sm">
+        <div className="flex items-start gap-3">
+          <Linkedin className="mt-0.5 h-4 w-4 text-primary" />
+          <div>
+            <p className="font-medium">{title}</p>
+            <p className="text-muted-foreground">{sub}</p>
+            <a href={LINKEDIN} target="_blank" rel="noreferrer" className="mt-2 inline-block font-mono text-xs text-primary">view on LinkedIn ↗</a>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  );
+}
+
+function Section({ title, delay, children }: { title: string; delay: number; children: React.ReactNode }) {
+  return (
+    <section className="reveal mt-12" style={d(delay)}>
+      <h2 className="mb-4 border-b border-border pb-2 text-sm text-sage">{title}</h2>
+      {children}
+    </section>
+  );
+}
 
 function Resume() {
   return (
-    <main className="-mx-6 sm:-mx-24 lg:-mx-48">
-      <section className="gingham relative overflow-hidden rounded-3xl border border-border px-8 py-16 text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-cherry">Resume · № 001</p>
-        <h1 className="mt-2 font-script text-7xl leading-tight text-foreground sm:text-8xl">Michaela Nunn</h1>
-        <p className="mx-auto mt-4 max-w-md text-xl italic">
-          Wires by training. <span className="text-primary">Software</span> by obsession.
-        </p>
-        <span className="absolute left-6 top-6 text-3xl text-primary">✿</span>
-        <span className="absolute bottom-6 right-8 text-4xl text-sage">❀</span>
-      </section>
+    <main>
+      <div className="reveal flex flex-wrap items-baseline justify-between gap-3" style={d(100)}>
+        <div>
+          <h1 className="text-2xl font-semibold">
+            <LinkedInCard href={LINKEDIN} title="Michaela Nunn" sub="Engineer & builder · Washington, DC">Michaela Nunn</LinkedInCard>
+          </h1>
+          <p className="text-muted-foreground">Engineer & builder · Washington, DC</p>
+        </div>
+        <div className="flex gap-4 font-mono text-xs">
+          <a href={RESUME_PDF} download className="link-soft">download résumé ↓</a>
+          <button onClick={() => window.print()} className="link-soft">print ↗</button>
+        </div>
+      </div>
 
-      <section className="mt-6 grid gap-4 sm:grid-cols-3">
-        {stats.map((s, i) => (
-          <div key={s.l} className={`rounded-2xl border border-border p-6 ${["bg-butter", "bg-blush", "bg-secondary"][i]}`}>
-            <div className="text-5xl font-semibold text-cherry">{s.v}</div>
-            <div className="mt-1 text-sm uppercase tracking-[0.2em]">{s.l}</div>
-          </div>
-        ))}
-      </section>
-
-      <section className="mt-16">
-        <h2 className="text-4xl">Experience, <em className="text-primary">in bloom.</em></h2>
-        <div className="mt-6 space-y-4">
-          {roles.map((r) => (
-            <article key={r.co} className="grid gap-4 rounded-3xl border border-border bg-card p-8 sm:grid-cols-[auto_1fr]">
-              <div className={`flex h-16 w-16 items-center justify-center rounded-full ${r.tone} text-xl font-semibold`}>{r.n}</div>
-              <div>
-                <h3 className="text-3xl">{r.co}</h3>
-                <p className="text-sm uppercase tracking-[0.2em] text-cherry">{r.role}</p>
-                <p className="mt-3 text-muted-foreground">{r.body}</p>
+      <Section title="Experience" delay={250}>
+        <div className="space-y-8">
+          {experience.map((e) => (
+            <article key={e.org}>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-medium">
+                  <LinkedInCard href={e.url} title={e.org} sub={e.blurb}>{e.org}</LinkedInCard>
+                </h3>
+                <span className="font-mono text-xs text-muted-foreground">{e.dates}</span>
               </div>
+              <p className="text-sm text-muted-foreground">{e.role}</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-rose">
+                {e.points.map((p) => <li key={p}>{p}</li>)}
+              </ul>
             </article>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="mt-16 rounded-3xl bg-primary p-10 text-primary-foreground">
-        <p className="text-sm uppercase tracking-[0.3em]">A little context</p>
-        <h2 className="mt-2 text-4xl">More than <em>a job title.</em></h2>
-        <p className="mt-4 max-w-xl text-lg opacity-90">
-          I move between the physical and the digital — from electrical drawings to full-stack apps. I read widely,
-          write about culture and ideas, and build things whenever an idea won't leave me alone.
+      <Section title="Selected projects" delay={400}>
+        <p className="font-mono text-sm text-muted-foreground">
+          Startup Sparta · Lexiconation · Pronia · SpeakStreak · Satellite · Pure Peptides DC · EEG Project
         </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {["Engineering", "Full-stack", "Books", "Writing", "Design"].map((t) => (
-            <span key={t} className="rounded-full bg-background px-4 py-1 text-sm text-foreground">{t}</span>
-          ))}
-        </div>
-      </section>
+      </Section>
+
+      <Section title="Skills" delay={550}>
+        <p className="text-sm">
+          Full-stack web development, TypeScript, React, databases, product design, electrical design & drafting, building codes.
+        </p>
+      </Section>
     </main>
   );
 }
