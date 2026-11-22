@@ -1,0 +1,1 @@
+- [x] Rebuild portfolio: home, blog (empty), resume (bold), contact
