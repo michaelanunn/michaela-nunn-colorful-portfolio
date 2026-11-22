@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { projects } from "@/lib/projects";
+import { posts } from "@/lib/posts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,16 +14,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const projects = [
-  { name: "ScaleHouse Systems", note: "OSHA & HIPAA compliance for dental teams", url: "https://scalehousesystems.com" },
-  { name: "Startup Sparta", note: "launchpad for verified startups", url: "https://startupsparta.com" },
-  { name: "Lexiconation", note: "word discovery & curated collections", url: "https://lexiconation.app" },
-  { name: "Pronia", note: "practice routines for musicians", url: "https://pronia.app" },
-  { name: "SpeakStreak", note: "daily voice practice", url: "https://speakstreak.app" },
-  { name: "Satellite", note: "real-time intelligence platform", url: "https://getsatellite.lol" },
-  { name: "Pure Peptides DC", note: "online storefront", url: "https://purepeptidesdc.com" },
-  { name: "EEG Project", note: "work in progress", url: "https://bci.michaelanunn.com" },
-];
 
 const d = (ms: number) => ({ animationDelay: `${ms}ms` });
 
@@ -52,11 +44,18 @@ function Index() {
         </ul>
       </section>
 
-      <section className="reveal" style={d(800)}>
-        <h2 className="mb-3 text-sm text-sage">Writing</h2>
-        <p className="font-mono text-sm text-muted-foreground">
-          nothing yet — see the <Link to="/blog" className="link-soft">blog</Link>
-        </p>
+      <section>
+        <h2 className="reveal mb-3 text-sm text-sage" style={d(800)}>Writing</h2>
+        <ul className="font-mono text-sm">
+          {posts.map((p, i) => (
+            <li key={p.slug} className="reveal" style={d(850 + i * 50)}>
+              <Link to="/blog/$slug" params={{ slug: p.slug }} className="group flex items-baseline justify-between gap-4 py-1.5">
+                <span className="group-hover:text-primary">{p.title}</span>
+                <span className="shrink-0 text-muted-foreground">{p.date}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

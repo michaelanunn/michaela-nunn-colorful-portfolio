@@ -19,27 +19,32 @@ const RESUME_PDF = "/michaela-nunn-resume.pdf";
 
 const experience = [
   {
-    org: "ScaleHouse Systems",
-    url: "https://scalehousesystems.com",
-    blurb: "Compliance software for dental practices.",
-    role: "Full-Stack Programmer · Washington, DC",
-    dates: "2025—present",
-    points: [
-      "Built a platform that helps dental teams create and maintain OSHA- and HIPAA-compliant documentation.",
-      "Owned features end to end, from data model to interface.",
-    ],
-  },
-  {
     org: "Stantec",
     url: "https://www.linkedin.com/company/stantec",
     blurb: "Global engineering & design firm.",
     role: "Electrical Designer",
-    dates: "Previously",
+    dates: "2026—present",
     points: [
       "Produced electrical design drawings and calculations for building projects.",
       "Coordinated with engineers across disciplines to meet code and client requirements.",
     ],
   },
+  {
+    org: "ScaleHouse Systems",
+    url: "https://scalehousesystems.com",
+    blurb: "Compliance software for dental practices.",
+    role: "Full-Stack Programmer · Washington, DC",
+    dates: "2025—2026",
+    points: [
+      "Built a platform that helps dental teams create and maintain OSHA- and HIPAA-compliant documentation.",
+      "Owned features end to end, from data model to interface.",
+    ],
+  },
+];
+
+const education = [
+  { school: "Mississippi State University", detail: "Electrical Engineering coursework", dates: "2024—2025" },
+  { school: "GMIS International School", detail: "IB Diploma · Bali, Indonesia", dates: "2020—2024" },
 ];
 
 const d = (ms: number) => ({ animationDelay: `${ms}ms` });
@@ -114,7 +119,21 @@ function Resume() {
         </p>
       </Section>
 
-      <Section title="Skills" delay={550}>
+      <Section title="Education" delay={500}>
+        <div className="space-y-4">
+          {education.map((e) => (
+            <div key={e.school}>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-medium">{e.school}</h3>
+                <span className="font-mono text-xs text-muted-foreground">{e.dates}</span>
+              </div>
+              <p className="text-sm text-muted-foreground">{e.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Skills" delay={600}>
         <p className="text-sm">
           Full-stack web development, TypeScript, React, databases, product design, electrical design & drafting, building codes.
         </p>
