@@ -15,27 +15,27 @@ export const Route = createFileRoute("/projects")({
 
 function Projects() {
   return (
-    <main className="-mx-6 md:-mx-40">
+    <main className="md:-mx-16">
       <h1 className="reveal text-xl font-medium">Projects</h1>
       <p className="reveal mb-8 text-muted-foreground" style={{ animationDelay: "80ms" }}>A selection of things I have built.</p>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-x-8 gap-y-8 md:grid-cols-2">
         {projects.map((p, i) => (
           <a
             key={p.name}
             href={p.url}
             target="_blank"
             rel="noreferrer"
-            className="reveal group flex gap-4 rounded-2xl border border-border bg-card p-3 transition hover:-translate-y-0.5 hover:border-rose"
+            className="reveal group flex gap-4"
             style={{ animationDelay: `${150 + i * 60}ms` }}
           >
-            <div className="aspect-[4/3] w-36 shrink-0 overflow-hidden rounded-xl bg-blush">
+            <div className="aspect-[4/3] w-32 shrink-0 overflow-hidden rounded-md bg-muted">
               {p.img ? (
-                <img src={p.img} alt={`${p.name} preview`} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
+                <img src={p.img} alt={`${p.name} preview`} loading="lazy" className="h-full w-full object-cover" />
               ) : (
-                <div className="flex h-full items-center justify-center text-2xl text-primary">✿</div>
+                <div className="flex h-full items-center justify-center text-2xl text-muted-foreground">✿</div>
               )}
             </div>
-            <div className="py-1">
+            <div>
               <h2 className="font-mono text-sm font-medium group-hover:text-primary">{p.name}</h2>
               <p className="mt-1 font-mono text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
             </div>

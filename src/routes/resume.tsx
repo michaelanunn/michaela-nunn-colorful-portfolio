@@ -40,6 +40,27 @@ const experience = [
       "Owned features end to end, from data model to interface.",
     ],
   },
+  {
+    org: "Independent Python Tutor",
+    url: "https://www.linkedin.com/in/michaelanunn",
+    blurb: "Programming tutoring.",
+    role: "Programming Tutor · Washington, DC",
+    dates: "Jan—May 2026",
+    points: ["Taught Python programming to students one-on-one."],
+  },
+  {
+    org: "Kumon Institute of Education Co.",
+    url: "https://www.linkedin.com/company/kumon",
+    blurb: "Math & reading education.",
+    role: "Math Tutor · Bali, Indonesia",
+    dates: "Oct 2022—May 2023",
+    points: ["Tutored students in math through the Kumon method."],
+  },
+];
+
+const activities = [
+  { name: "Social Media Creator — YouTube Channel & Discord Community", dates: "", note: "Built an audience of over 1,000 people and a Discord community." },
+  { name: "Captain — Cryptocurrency Club", dates: "2024", note: "Mississippi State University" },
 ];
 
 const education = [
@@ -133,7 +154,21 @@ function Resume() {
         </div>
       </Section>
 
-      <Section title="Skills" delay={600}>
+      <Section title="Activities" delay={550}>
+        <div className="space-y-4">
+          {activities.map((a) => (
+            <div key={a.name}>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-medium">{a.name}</h3>
+                <span className="font-mono text-xs text-muted-foreground">{a.dates}</span>
+              </div>
+              <p className="text-sm text-muted-foreground">{a.note}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Skills" delay={650}>
         <p className="text-sm">
           Full-stack web development, TypeScript, React, databases, product design, electrical design & drafting, building codes.
         </p>
