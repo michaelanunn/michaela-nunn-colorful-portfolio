@@ -19,10 +19,10 @@ const RESUME_PDF = "/michaela-nunn-resume.pdf";
 
 const experience = [
   {
-    org: "Stantec",
+    org: "Stantec Inc.",
     url: "https://www.linkedin.com/company/stantec",
     blurb: "Global engineering & design firm.",
-    role: "Electrical Designer",
+    role: "Electrical Designer · Washington, DC",
     dates: "2026—present",
     points: [
       "Produced electrical design drawings and calculations for building projects.",
@@ -30,7 +30,7 @@ const experience = [
     ],
   },
   {
-    org: "ScaleHouse Systems",
+    org: "ScaleHouse Systems Inc.",
     url: "https://scalehousesystems.com",
     blurb: "Compliance software for dental practices.",
     role: "Full-Stack Programmer · Washington, DC",
@@ -59,7 +59,7 @@ const experience = [
 ];
 
 const activities = [
-  { name: "Social Media Creator — YouTube Channel & Discord Community", dates: "", note: "Built an audience of over 1,000 people and a Discord community." },
+  { name: "Social Media Creator — YouTube Channel & Discord Community", dates: "2024—present", note: "Built an audience of over 1,000 people and a Discord community." },
   { name: "Captain — Cryptocurrency Club", dates: "2024", note: "Mississippi State University" },
 ];
 
@@ -115,6 +115,15 @@ function Resume() {
         </div>
       </div>
 
+      <Section title="TECHNICAL SKILLS" delay={180}>
+        <div className="space-y-2 text-sm">
+          <p><span className="font-medium">Programming Languages:</span> C++, Typescript, Python</p>
+          <p><span className="font-medium">Frameworks &amp; Tools:</span> LLMs, AI Agents, Langgraph, LangChain, MySQL, Windows, Linux/Unix, AWS, MATLAB</p>
+          <p><span className="font-medium">Front-end:</span> HTML, CSS, React.JS, Next.js, Tailwind CSS</p>
+          <p><span className="font-medium">Language:</span> English (Fluent, Native), Indonesian (Fluent), Spanish (Intermediate)</p>
+        </div>
+      </Section>
+
       <Section title="Experience" delay={250}>
         <div className="space-y-8">
           {experience.map((e) => (
@@ -135,9 +144,49 @@ function Resume() {
       </Section>
 
       <Section title="Selected projects" delay={400}>
-        <p className="font-mono text-sm text-muted-foreground">
-          Startup Sparta · Lexiconation · Pronia · SpeakStreak · Satellite · Pure Peptides DC · EEG Project
-        </p>
+        <div className="space-y-6">
+          <article>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-medium">
+                <a href="https://startupsparta.com" target="_blank" rel="noreferrer" className="link-soft">StartupSparta.com</a>
+                <span className="font-normal text-muted-foreground"> | AWS, Rust, Anchor, Solflare, Helius RPC, Next.js</span>
+              </h3>
+              <span className="font-mono text-xs text-muted-foreground">Jan 2026</span>
+            </div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-rose">
+              <li>Built full-stack Solana token launchpad for early-stage companies using bonding curve pricing mechanics.</li>
+              <li>Successfully attracted over 300 users to the waitlist.</li>
+            </ul>
+          </article>
+
+          <article>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-medium">
+                <a href="https://speakstreak.app" target="_blank" rel="noreferrer" className="link-soft">SpeakStreak.app</a>
+                <span className="font-normal text-muted-foreground"> | Next.js, Supabase, Web Audio API, Pitchfinder.js, NLP, Whisper API</span>
+              </h3>
+              <span className="font-mono text-xs text-muted-foreground">Nov 2025</span>
+            </div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-rose">
+              <li>Built an AI SaaS platform to analyze and improve speech quality, implementing Pitchfinder.js for real-time pitch detection, NLP pipelines for filler word identification, and acoustic models for scoring vocal patterns.</li>
+              <li>Delivered actionable feedback across charisma, confidence, and speech rate metrics with celebrity voice-match functionality.</li>
+            </ul>
+          </article>
+
+          <article>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-medium">
+                <a href="https://pronia.app" target="_blank" rel="noreferrer" className="link-soft">Pronia.app</a>
+                <span className="font-normal text-muted-foreground"> | Next.js, Supabase, TypeScript, REST APIs, Social Graph Architecture</span>
+              </h3>
+              <span className="font-mono text-xs text-muted-foreground">Aug 2025</span>
+            </div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-rose">
+              <li>Created a social media application connecting musicians, featuring AI-driven feedback for pianists.</li>
+              <li>Achieved significant user engagement, with over 1,000 searches and 2,400+ unique visitors within the first week of launch.</li>
+            </ul>
+          </article>
+        </div>
       </Section>
 
       <Section title="Education" delay={500}>
@@ -166,12 +215,6 @@ function Resume() {
             </div>
           ))}
         </div>
-      </Section>
-
-      <Section title="Skills" delay={650}>
-        <p className="text-sm">
-          Full-stack web development, TypeScript, React, databases, product design, electrical design & drafting, building codes.
-        </p>
       </Section>
     </main>
   );

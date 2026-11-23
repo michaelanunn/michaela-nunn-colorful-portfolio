@@ -25,7 +25,7 @@ function Index() {
           I'm Michaela Nunn, an engineer and builder based in Washington, DC <span className="text-primary">✿</span>
         </p>
         <p className="reveal text-muted-foreground" style={d(200)}>
-          I've worked in electrical design at Stantec and as a full-stack programmer at ScaleHouse Systems.
+          I've worked in electrical design at Stantec Inc. and as a full-stack programmer at ScaleHouse Systems Inc.
           This site is where I keep the things I make, read, and think about.
         </p>
       </section>
