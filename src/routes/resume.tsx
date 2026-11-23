@@ -41,14 +41,6 @@ const experience = [
     ],
   },
   {
-    org: "Independent Python Tutor",
-    url: "https://www.linkedin.com/in/michaelanunn",
-    blurb: "Programming tutoring.",
-    role: "Programming Tutor · Washington, DC",
-    dates: "Jan—May 2026",
-    points: ["Taught Python programming to students one-on-one."],
-  },
-  {
     org: "Kumon Institute of Education Co.",
     url: "https://www.linkedin.com/company/kumon",
     blurb: "Math & reading education.",
@@ -61,6 +53,7 @@ const experience = [
 const activities = [
   { name: "Social Media Creator — YouTube Channel & Discord Community", dates: "2024—present", note: "Built an audience of over 1,000 people and a Discord community." },
   { name: "Captain — Cryptocurrency Club", dates: "2024", note: "Mississippi State University" },
+  { name: "Tutor — Python Programming Language", dates: "Jan—May 2026", note: "Independent tutor; taught Python programming to students one-on-one." },
 ];
 
 const education = [
