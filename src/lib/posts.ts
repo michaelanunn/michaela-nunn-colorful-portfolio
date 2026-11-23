@@ -3,12 +3,12 @@ export type Post = { slug: string; title: string; date: string; body: string[] }
 export const posts: Post[] = [
   {
     slug: "emotions-are-never-irrational",
-    title: "emotions are never irrational, feelings can be",
+    title: "Emotions are never irrational; feelings can be",
     date: "Nov 2026",
     body: [
-      "its not possible for an emotion to be irrational. Only attempts at reason can be rational or irrational. Its also not possible for an emotion to be illogical. Only attempts at logic can be logical or illogical. Emotions make no claim to either reason or logic so they cannot be irrational or illogical anymore than they can be rational or logical.",
-      "Heres the thing, Behind every emotion is a thought. Now im using thought in its possible widest sense. A thought could be a conscious cognition or an unconscious belief or a perception or a judgement. But in almost all cases theres some form of thought that precedes the emotion. You think something, you validate it as true and the body produces the emotional correlate of that thought. in fact thats one way to think about emotions, they are embodied cognitions.",
-      "Heres the thing not all emotions are justified. All emotions are valid but not all emotions are justified.",
+      "It is not possible for an emotion to be irrational. Only attempts at reasoning can be rational or irrational. It is also not possible for an emotion to be illogical. Only attempts at logic can be logical or illogical. Emotions make no claim to reason or logic, so they cannot be irrational or illogical any more than they can be rational or logical.",
+      "Here is the thing: behind every emotion is a thought. I am using \"thought\" in its broadest possible sense. A thought could be a conscious cognition, an unconscious belief, a perception, or a judgment. In almost all cases, there is some form of thought that precedes the emotion. When you think something and validate it as true, the body produces the emotional correlate of that thought. In fact, this is one way to think about emotions: they are embodied cognitions.",
+      "Here is the thing: not all emotions are justified. All emotions are valid, but not all emotions are justified.",
     ],
   },
 ];

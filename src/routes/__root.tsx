@@ -130,7 +130,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Analytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <div className="mx-auto max-w-2xl px-6 pb-24 pt-12">
+      <div className="site-shell mx-auto max-w-2xl px-6 pb-24 pt-12">
         <SiteNav />
         <Outlet />
         <SiteFooter />

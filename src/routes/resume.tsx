@@ -15,7 +15,7 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
-const RESUME_PDF = "/michaela-nunn-resume.pdf";
+const RESUME_PDF = "/assets/resume.pdf";
 
 const experience = [
   {
@@ -94,7 +94,7 @@ function Section({ title, delay, children }: { title: string; delay: number; chi
 
 function Resume() {
   return (
-    <main>
+    <main className="resume-page">
       <div className="reveal flex flex-wrap items-baseline justify-between gap-3" style={d(100)}>
         <div>
           <h1 className="text-2xl font-semibold">
@@ -102,9 +102,9 @@ function Resume() {
           </h1>
           <p className="text-muted-foreground">Engineer & builder · Washington, DC</p>
         </div>
-        <div className="flex gap-4 font-mono text-xs">
-          <a href={RESUME_PDF} download className="link-soft">download résumé ↓</a>
-          <button onClick={() => window.print()} className="link-soft">print ↗</button>
+        <div className="resume-actions flex gap-4 font-mono text-xs">
+          <a href={RESUME_PDF} download="Michaela-Nunn_Resume.pdf" className="link-soft">download résumé ↓</a>
+          <button type="button" onClick={() => window.print()} className="link-soft">print this résumé ↗</button>
         </div>
       </div>
 

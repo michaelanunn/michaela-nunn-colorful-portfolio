@@ -9,7 +9,7 @@ const links = [
 
 export function SiteNav() {
   return (
-    <nav className="reveal mb-16 flex items-baseline justify-between">
+    <nav className="site-nav reveal mb-16 flex items-baseline justify-between">
       <Link to="/" className="font-medium text-foreground hover:text-primary">
         michaela nunn
       </Link>
