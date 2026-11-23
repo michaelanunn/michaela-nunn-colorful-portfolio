@@ -9,6 +9,7 @@ import {
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -127,6 +128,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Analytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <div className="mx-auto max-w-2xl px-6 pb-24 pt-12">
         <SiteNav />
